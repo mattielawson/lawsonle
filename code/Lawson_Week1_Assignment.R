@@ -22,7 +22,7 @@
 
 # Push your script and your .csv file to GitHub in a new "Week1" folder.
 a <- c('a','b','c','d','e','f','g','h','i','j','k','l','m','n','o')
-b <- c('a','b','c','d','d','d','d','d','d','d','d','d','d','d','d')
+b <- c('a','b','c','d','d','d','d','d','d','d','d','d','d','d','d') #four unique values.
 c <- c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
 d <- c(1,1,1,2,2,2,3,3,3,4,4,4,5,5,5)
 e <- c(1.1,2.2,3.3,4.4,5,6,7,8,9,10,11,12,13,14,15)
@@ -39,3 +39,7 @@ df.a
 binary.solo <- c (5,8,2,0)
 new.df <- rbind(df.a, binary.solo)
 new.df
+
+
+#no line to export the CSV or summary statistics?
+
