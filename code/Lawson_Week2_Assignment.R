@@ -17,9 +17,9 @@
 #barplot
 unique.char <- c('a','b','c','d','e','f','g','h','i','j','k','l','m','n','o')
 group.char <- c('a','b','d','d','d','d','d','d','d','d','d','d','d','d','d')
-uniqu.num <- c(0,10,10,20,30,50,80,13,23,34,66,89,156,247,457)
-rep.num <- c(10,20,30,10,20,30,10,20,30,50,20,30,40,10,60)
-dec.num <- c(11,2.1,3.1,1.2,2.3,3.5,1.8,2.13,3.21,5.34,2.55,3.89,4.155,0.243,5.377)
+uniqu.num <- c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
+rep.num <- c(1,1,1,2,2,2,3,3,3,4,4,4,5,5,5)
+dec.num <- c(1.1,2.2,3.3,4.4,5.5,6.6,7.7,8.8,9.9,10.1,11.1,12.1,13.1,14.1,15.1)
 df <- as.data.frame(cbind(unique.char,group.char,uniqu.num,rep.num,dec.num))
 df$uniqu.num <- as.numeric(as.character(df$uniqu.num))
 df$rep.num <- as.numeric(as.character(df$rep.num))
@@ -36,10 +36,14 @@ df.sd
 b.plot <- barplot(df.mean$Mean, names.arg = df.mean$Factor)
 arrows(b.plot, df.mean$Mean-df.sd$StanDev,
        b.plot, df.mean$Mean+df.sd$StanDev,angle=90,code=3)
+b.plot <- barplot(df.mean$Mean, names.arg = df.mean$Factor, ylim = c(0,5))
+arrows(b.plot, df.mean$Mean-df.sd$StanDev,
+       b.plot, df.mean$Mean+df.sd$StanDev,angle=90,code=3)
+title("barplot")
+title(ylab="ylabel")
+title(xlab="xlabel")
+
 setwd("C:/GitHub/lawsonle")
-pdf( file = "MyBarplot.pdf", width = 4, height = 7)
-par(family = "serif")
-dev.off()
 
 
 
