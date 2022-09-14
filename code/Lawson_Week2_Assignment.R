@@ -53,5 +53,7 @@ plot(df$dec.num ~ df$uniqu.num)
 plot(df$dec.num ~ df$uniqu.num, xlab = "colors", ylab = "shapes")
 ?pch
 plot(df$dec.num ~ df$uniqu.num, xlab = "Colors", ylab = "Shapes", main = "R You Kidding Me", 
-     cex.axis=1.0, cex.main = 1.0, cex.lab = 1.0, pch=8, col="red")
+     cex.axis=1.0, cex.main = 1.0, cex.lab = 1.0, pch=8, col="red") # I approve of the cheap R pun
+
+#everything is spot-on, except corrupt PDF file.
 
