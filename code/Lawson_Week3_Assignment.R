@@ -1,5 +1,5 @@
 # (1) Approximately how many hours ahead of Sunbury was the peak flow in Lewisburg during the 2011 flood? (2 pt)
-  #The peak flow in Lewisburg was 
+  #The peak flow in Lewisburg was about 9 hours ahead of Sunbury
 
 # (2) Give one reason why information on the time between peak flow events up- and downstream could be valuable? (4 pts)
   #One reason why it would be important is because if we can tell at what time peak flow was upstream, and then what time 
