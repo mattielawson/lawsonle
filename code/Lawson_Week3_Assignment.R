@@ -63,5 +63,92 @@ p + xlab("Population Size") + ylab("Estimated Allele Frequency")
           # Diversity metrics are frequently used in community ecology for reasons ranging from a quick comparison between sites to understanding community stability.
           # Their calculation can be very tedious by hand - and very fast with a package designed for the operation.
 
+#Simpson's Diversity Index? Maybe.
+plot1<-c(30,34,36)
+plot2<-c(20,7,73)
+plots<-cbind(plot1,plot2)
+simpson<-function(data,type="complement"){
+  simpson.diversity<-numeric(ncol(data))
+  for(j in 1:ncol(data)){
+    soma<-sum(data[,j])
+    prop<-data[,j]/soma
+    prop2<-prop^2
+    D<-sum(prop2)
+    if(type=="inverse") (simp<-1/D)
+    if(type=="complement") (simp<-1-D)
+    simpson.diversity[j]<-simp
+  }
+  plot.number<-1:ncol(data)
+  return(rbind(plot.number,simpson.diversity))
+}
+summary(plots)
+print(> plot1<-c(30,34,36)
+      > plot2<-c(20,7,73)
+      > plots<-cbind(plot1,plot2)
+      > simpson<-function(data,type="complement"){
+        +   simpson.diversity<-numeric(ncol(data))
+        +   for(j in 1:ncol(data)){
+          +     soma<-sum(data[,j])
+          +     prop<-data[,j]/soma
+          +     prop2<-prop^2
+          +     D<-sum(prop2)
+          +     if(type=="inverse") (simp<-1/D)
+          +     if(type=="complement") (simp<-1-D)
+          +     simpson.diversity[j]<-simp
+          +   }
+        +   plot.number<-1:ncol(data)
+        +   return(rbind(plot.number,simpson.diversity))
+        + }
+      > summary(plots)
+      plot1           plot2      
+      Min.   :30.00   Min.   : 7.00  
+      1st Qu.:32.00   1st Qu.:13.50  
+      Median :34.00   Median :20.00  
+      Mean   :33.33   Mean   :33.33  
+      3rd Qu.:35.00   3rd Qu.:46.50  
+      Max.   :36.00   Max.   :73.00)
 
-
+#Simpson's Diversity Index Manipulation
+plot1<-c(70,44,95)
+plot2<-c(3,58,89)
+plots<-cbind(plot1,plot2)
+simpson<-function(data,type="complement"){
+  simpson.diversity<-numeric(ncol(data))
+  for(j in 1:ncol(data)){
+    soma<-sum(data[,j])
+    prop<-data[,j]/soma
+    prop2<-prop^2
+    D<-sum(prop2)
+    if(type=="inverse") (simp<-1/D)
+    if(type=="complement") (simp<-1-D)
+    simpson.diversity[j]<-simp
+  }
+  plot.number<-1:ncol(data)
+  return(rbind(plot.number,simpson.diversity))
+}
+summary(plots)
+print(> plot1<-c(70,44,95)
+      > plot2<-c(3,58,89)
+      > plots<-cbind(plot1,plot2)
+      > simpson<-function(data,type="complement"){
+        +   simpson.diversity<-numeric(ncol(data))
+        +   for(j in 1:ncol(data)){
+          +     soma<-sum(data[,j])
+          +     prop<-data[,j]/soma
+          +     prop2<-prop^2
+          +     D<-sum(prop2)
+          +     if(type=="inverse") (simp<-1/D)
+          +     if(type=="complement") (simp<-1-D)
+          +     simpson.diversity[j]<-simp
+          +   }
+        +   plot.number<-1:ncol(data)
+        +   return(rbind(plot.number,simpson.diversity))
+        + }
+      > summary(plots)
+      plot1           plot2     
+      Min.   :44.00   Min.   : 3.0  
+      1st Qu.:57.00   1st Qu.:30.5  
+      Median :70.00   Median :58.0  
+      Mean   :69.67   Mean   :50.0  
+      3rd Qu.:82.50   3rd Qu.:73.5  
+      Max.   :95.00   Max.   :89.0)
