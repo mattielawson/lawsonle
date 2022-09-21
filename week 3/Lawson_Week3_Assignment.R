@@ -49,7 +49,8 @@ summary(df)
 library(ggplot2)
 p <- ggplot(df, aes(x=factor(N), y=FreqA)) + geom_boxplot() 
 p + xlab("Population Size") + ylab("Estimated Allele Frequency")
-
+#Where did you find this?!? I have not seen it before and I love how much of it uses base R functions.
+#Your second plot export is corrupt, and I can't figure out why. Everything looks good in your code. Remind me to check this without to make sure it's not an issue in the future.
 
 ## (4) Using Google and ONLY packages from GitHub or CRAN:
     # Find a package that will generate standard diversity metrics for community ecology, specifically Simpson's Diversity Index.
@@ -63,7 +64,8 @@ p + xlab("Population Size") + ylab("Estimated Allele Frequency")
           # Diversity metrics are frequently used in community ecology for reasons ranging from a quick comparison between sites to understanding community stability.
           # Their calculation can be very tedious by hand - and very fast with a package designed for the operation.
 
-#Simpson's Diversity Index? Maybe.
+#Simpson's Diversity Index? Maybe. #sort of. Where did you find this one too!?! The function looks correct to me but the way you tried to apply it isn't quite right. 
+#If there's time tomorrow show me where you found this and I'll see if we can walk through why/how it didn't work.
 plot1<-c(30,34,36)
 plot2<-c(20,7,73)
 plots<-cbind(plot1,plot2)
