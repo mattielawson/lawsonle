@@ -152,3 +152,5 @@ print(> plot1<-c(70,44,95)
       Mean   :69.67   Mean   :50.0  
       3rd Qu.:82.50   3rd Qu.:73.5  
       Max.   :95.00   Max.   :89.0)
+
+install.packages("vegan")
