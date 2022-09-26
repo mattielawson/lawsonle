@@ -14,15 +14,15 @@ install.packages('stability')
 library(stability)
 data("ge_data")
 
-
 # Create two linear models for Yield Response: one related to the Environment and one to the Genotype. (2 points each)
   # 'Yield Response' in this dataset is a measure of phenotype expression.
   # Hint: Look at the help file for this dataset.
-?ge_data
-?stability
-
-
-
+setwd("C:/GitHub/lawsonle/week 4")
+install.packages('stability')
+library(stability)
+data <- ge_data
+head(ge_data)
+mod.env <- lm(data$Env ~ data$Yield)
 
 # Test the significance of both models and look at the model summary. (3 points each)
   # Which model is a better fit to explain the yield response, and WHY? (6 points)
