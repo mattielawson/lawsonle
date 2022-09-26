@@ -18,14 +18,26 @@ data("ge_data")
   # 'Yield Response' in this dataset is a measure of phenotype expression.
   # Hint: Look at the help file for this dataset.
 setwd("C:/GitHub/lawsonle/week 4")
-install.packages('stability')
-library(stability)
-data <- ge_data
-head(ge_data)
-mod.env <- lm(data$Env ~ data$Yield)
+data <- "ge_data"
+head(data)
+ge_data
+mod.env <- lm(data$Yield ~ data$Env)
+df <- ge_data
+df
+mod.env <- lm(Yield ~ Env, data = ge_data)
+anova(mod.env)
+summary(mod.env)
+
+mod.gen <- lm(Yield ~ Gen, data = ge_data)
+anova(mod.gen)
+summary(mod.gen)
 
 # Test the significance of both models and look at the model summary. (3 points each)
   # Which model is a better fit to explain the yield response, and WHY? (6 points)
+#The model that is a better fit to explain the yield response is the genotype model. This is because
+#it has a smaller p-value from the summary so it has a higher statistical significance than the 
+#environment does.
   # Hint: Does one model seem more likely to be over-fitted?
 
 # Which environment would be your very WORST choice for generating a strong yield response? (2 points)
+#The environment that would be the worst is EnvSargodha because it had the least significance.
