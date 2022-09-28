@@ -20,7 +20,7 @@ data("ge_data")
   # 'Yield Response' in this dataset is a measure of phenotype expression.
   # Hint: Look at the help file for this dataset.
 setwd("C:/GitHub/lawsonle/week 4")
-data <- "ge_data"
+data <- ge_data #no quotes
 head(data)
 ge_data
 mod.env <- lm(data$Yield ~ data$Env)
@@ -40,6 +40,8 @@ summary(mod.gen)
 #it has a smaller p-value from the summary so it has a higher statistical significance than the 
 #environment does.
   # Hint: Does one model seem more likely to be over-fitted?
+#Backwards - the env model has the lower p-value and the gen model is over-fitted.
+
 
 # Which environment would be your very WORST choice for generating a strong yield response? (2 points)
 #The environment that would be the worst is EnvSargodha because it had the least significance.
