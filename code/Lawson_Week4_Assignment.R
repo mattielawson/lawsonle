@@ -4,12 +4,18 @@
 #to compare to one another. In order to draw inferences about a place, we need to know which data points
 #to compare, if we do not know which point is from where, we can nor draw conclusions about specific places
 #and also can not compare those places to one another.
+#This is getting a little meta. Generally I don't disagree, but I don't think you're giving the lat/lon data enough credit here. 
+  #Think more about how these data are distributed spatially rather than what metadata are attached to them.
 
   # Part 2: Despite the drawbacks, give the result or interpretation that you feel most confident in (3 points), and EXPLAIN WHY (4 points).
+<<<<<<< HEAD
 #So, to finally answer this question,the interpretation that I feel most confident in is that
 #the black data points/genes that are all spread out through the graph is a common gene, or possibly a
 #housekeeping gene. This is because it is less concentrated than the other plot points which means that
 #it does not belong to only one concentrated area, but is seen spread out over multiple areas studied.
+=======
+#Answer?
+>>>>>>> c18059e423c37dae2d2b930f3efb38dc2a147208
 
 # For your scripting assignment we will use the "ge_data" data frame found in the "stability" package.
   # Install the "stability" package, load it into your R environment, and use the data() function to load the "ge_data". (2 points)
@@ -21,7 +27,7 @@ data("ge_data")
   # 'Yield Response' in this dataset is a measure of phenotype expression.
   # Hint: Look at the help file for this dataset.
 setwd("C:/GitHub/lawsonle/week 4")
-data <- "ge_data"
+data <- ge_data #no quotes
 head(data)
 ge_data
 mod.env <- lm(data$Yield ~ data$Env)
@@ -41,6 +47,8 @@ summary(mod.gen)
 #it has a smaller p-value from the summary so it has a higher statistical significance than the 
 #environment does.
   # Hint: Does one model seem more likely to be over-fitted?
+#Backwards - the env model has the lower p-value and the gen model is over-fitted.
+
 
 # Which environment would be your very WORST choice for generating a strong yield response? (2 points)
 #The environment that would be the worst is EnvSargodha because it had the least significance.
