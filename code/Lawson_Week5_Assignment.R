@@ -29,10 +29,3 @@
   # Don't cheat by looking at the paper! 
     # This hypothesis does not need to be correct - it only needs to be ecologically rational based these two figures.
 
-
-
-
-
-
-
-
