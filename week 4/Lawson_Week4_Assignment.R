@@ -21,12 +21,10 @@ data("ge_data")
   # 'Yield Response' in this dataset is a measure of phenotype expression.
   # Hint: Look at the help file for this dataset.
 setwd("C:/GitHub/lawsonle/week 4")
-data <- "ge_data"
+data <- ge_data
 head(data)
 ge_data
 mod.env <- lm(data$Yield ~ data$Env)
-df <- ge_data
-df
 mod.env <- lm(Yield ~ Env, data = ge_data)
 anova(mod.env)
 summary(mod.env)
