@@ -7,7 +7,7 @@ library(reshape2)
 
 #data <- read.csv(file=("/Users/matt/Documents/Dropbox/LifeCycleRevision/ScientificReports/Dryad/Figure4Data.csv"), header=T)
 setwd("C:/GitHub/lawsonle/week 5")
-data <- read.csv("Figure4Data.csv", header=TRUE)
+data <- read.csv(file=("Figure4Data.csv"), header=TRUE)
 data
 
 # Originally (in 2017-04-12 script) I used unweighted means for ordering strains
