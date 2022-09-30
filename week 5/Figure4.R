@@ -113,9 +113,22 @@ myplot <- ggplot(data = data.weight,
   annotate('text', x=8, y=-0.5, label="115") +
   annotate('text', x=9, y=-0.5, label="103")
 
-ggsave(filename=filename("C:/GitHub/lawsonle/week 5",
+myplot
+
+ggsave(filename=paste("/Users/matt/Documents/Dropbox/LifeCycleRevision/ScientificReports/Dryad/",
                       paste("Figure4", ".png", sep=""), sep=""), plot=myplot,
        width = 10, height = 4, bg = 'transparent')
 
+ggsave(filename=paste("C:/GitHub/lawsonle/week 5",
+                      paste("Figure4", ".png", sep=""), sep=""), plot=myplot,
+       width = 10, height = 4, bg = 'transparent')
 
+#fitdist() and gofstat()
 
+fitdist(data$Num.Cells.Progeny)
+gofstat(data$Num.Cells.Progeny)
+
+fitdist(data$RepTime.sec)
+gofstat(data$RepTime.sec)
+
+hist(data$RepTime.sec)
