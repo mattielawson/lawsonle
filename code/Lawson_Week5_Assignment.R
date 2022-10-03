@@ -16,7 +16,6 @@
       # 3 points each
     #HINT- "Num.Cells.Progeny" has defined breaks. To display results, use the formula with the "chisqbreaks" argument as follows:
       #gofstat(list(fit.1, fit.2, fit.3, etc), chisqbreaks=c(1,2,4,8,16,32,64))
-library(fitdistrplus)
 fitdist(data$Num.Cells.Progeny)
 gofstat(list(fit.1, fit.2, fit.3, etc), chisqbreaks=c(1,2,4,8,16,32,64))
 gofstat(data$Num.Cells.Progeny)
@@ -37,6 +36,6 @@ hist(data$RepTime.sec)
   # Don't cheat by looking at the paper! 
     # This hypothesis does not need to be correct - it only needs to be ecologically rational based these two figures.
 #My hypothesis is that these two tallest bars represent an adaptation that the observed
-#specimen developed to avoid getting eaten or discovered by a predator so it did not
-#get eaten as often. But as the bars go down after, the predator evolved too in response 
-#to the prey.
+#specimen developed to avoid getting killed by a predator or something in its environment
+#so it did not get killed as often. But as the bars go down after, the predator evolved too 
+#in response to the prey, or something in the environment changed after the mutation.
