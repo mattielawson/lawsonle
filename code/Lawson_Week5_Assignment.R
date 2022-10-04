@@ -16,8 +16,10 @@
       # 3 points each
     #HINT- "Num.Cells.Progeny" has defined breaks. To display results, use the formula with the "chisqbreaks" argument as follows:
       #gofstat(list(fit.1, fit.2, fit.3, etc), chisqbreaks=c(1,2,4,8,16,32,64))
+library(fitdistrplus)
+library(logspline)
 fitdist(data$Num.Cells.Progeny)
-#gofstat(list(fit.1, fit.2, fit.3, etc), chisqbreaks=c(1,2,4,8,16,32,64))
+gofstat(list(fit.1, fit.2, fit.3, etc), chisqbreaks=c(1,2,4,8,16,32,64))
 gofstat(data$Num.Cells.Progeny)
 
 fitdist(data$RepTime.sec)
