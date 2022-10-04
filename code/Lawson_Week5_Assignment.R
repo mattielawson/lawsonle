@@ -19,6 +19,9 @@
 library(fitdistrplus)
 library(logspline)
 
+one.col <- data$Num.Cells.Progeny
+fit.logis <- fitdist(one.col*100, distr = "logis")
+
 fitdist(data$Num.Cells.Progeny)
 gofstat(list(fit.1, fit.2, fit.3, etc), chisqbreaks=c(1,2,4,8,16,32,64))
 gofstat(data$Num.Cells.Progeny)
