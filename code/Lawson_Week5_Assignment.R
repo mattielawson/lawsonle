@@ -18,6 +18,7 @@
       #gofstat(list(fit.1, fit.2, fit.3, etc), chisqbreaks=c(1,2,4,8,16,32,64))
 library(fitdistrplus)
 library(logspline)
+
 fitdist(data$Num.Cells.Progeny)
 gofstat(list(fit.1, fit.2, fit.3, etc), chisqbreaks=c(1,2,4,8,16,32,64))
 gofstat(data$Num.Cells.Progeny)
