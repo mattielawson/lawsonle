@@ -18,9 +18,18 @@
       #gofstat(list(fit.1, fit.2, fit.3, etc), chisqbreaks=c(1,2,4,8,16,32,64))
 library(fitdistrplus)
 library(logspline)
+setwd("C:/GitHub/lawsonle/week 5")
+data <- read.csv(file=("Figure4Data.csv"), header=TRUE)
+data
 
 one.col <- data$Num.Cells.Progeny
-fit.logis <- fitdist(one.col*100, distr = "logis")
+#fit.norm <- fitdist(one.col, distr = "norm")
+#fit.norm <- fitdist(one.col*100, distr = "norm")
+#fit.logis <- fitdist(one.col*100, distr = "logis")
+#fit.weibull <- fitdist(one.col*100, distr = "weibull", lower = c(0, 0), start = list(scale = 1, shape = 1))
+#fit.gamma <- fitdist(one.col*100, distr = "gamma", lower = c(0, 0), start = list(scale = 1, shape = 1))
+
+gofstat(list(fit.weibull, fit.gamma, fit.norm, fit.logis))
 
 fitdist(data$Num.Cells.Progeny)
 gofstat(list(fit.1, fit.2, fit.3, etc), chisqbreaks=c(1,2,4,8,16,32,64))
