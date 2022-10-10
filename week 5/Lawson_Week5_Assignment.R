@@ -9,6 +9,7 @@
 
 # Based on these observations of your strain distributions, why did the authors use a Kruskal-Wallis test rather than ANOVA to compare the strains? (2 pts)
   #Because this data does not have a normal distribution so an ANOVA would not work
+#Why does K-W work instead? (median/anova by ranks)
 
 # Use the fitdist() and gofstat() functions to compare the poisson, negative binomial, and logistic distributions for:
   # (1) - The number of cells of progeny (data$Num.Cells.Progeny)
@@ -44,7 +45,7 @@ gofstat(list(fit.weibull, fit.gamma, fit.norm, fit.logis), chisqbreaks=c(1,2,4,8
 #The best fit is gamma.
   # (2) - The replication time (data$RepTime.sec)?
 #The best fit is weibull.
-
+#This aren't the distributions from the directions...
 
 # Plot a generic histogram for the replication time (data$RepTime.sec) (2 pt)
 hist(data$RepTime.sec)
