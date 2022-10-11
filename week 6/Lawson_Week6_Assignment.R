@@ -37,19 +37,24 @@ summary(glmm.mod3)
     #just comparing to eaten.
 
 # (Q3) - Plot the residuals of both models. Do you think either model is a good fit? Why or why not? (3 pts)
-
+plot(glmm.mod1)
+plot(glmm.mod2)
+    #I think that both of the residuals are both very random, but glmm.mod2 seems to be a better
+    #fit because the glmm.mod1 seems to have data points forming in vertical lines in the plot
+    #but glmm.mod2 is more random
 
 # Re-run both models as generalized additive models instead (using gam). Then compare the AIC of both models. (4 points each)
 library(mgcv)
 gam.mod2 <- gam(activity.level~ prey, family = binomial, random = list(ID=~ 1), data = df)
 summary(gam.mod2)
-#AIC:
+AIC(gam.mod2)
 
-gam.mod1 <- gam(activity.level~ prop.cons, family = binomial, random = list(ID=~ 1), data = df)
+gam.mod1 <- gam(activity.level~ eaten, family = binomial, random = list(ID=~ 1), data = df)
 summary(gam.mod1)
-#AIC:
+AIC(gam.mod1)
 
 # (Q4) - Which model is a better fit? (2 pt)
-
+    #The second model is a better fit, with activity.level and eaten because it has a lower AIC score.
 
 # (Q5) - Based on the residuals of your generalized additive models, how confident are you in these results? (2 pts)
+    #Honestly, not very personally confident 
