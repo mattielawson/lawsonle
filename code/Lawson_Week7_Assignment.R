@@ -39,22 +39,35 @@ LotVmod <- function (Time, State, Pars) {
     return(list(c(dx, dy)))
   })
 }
+
 Pars <- c(alpha = 3, beta = 0.5, gamma = .2, delta = .6) 
+
+
+Pars <- c(alpha = 1, beta = 0.2, gamma = .4, delta = .5) 
+
 State <- c(x = 10, y = 10)
 Time <- seq(0, 100, by = 1)
-out <- as.data.frame(ode(func = LotVmod, y = State, parms = Pars, times = Time)) 
+out <- as.data.frame(ode(func = LotVmod, y = State, parms = Pars, times = Time))
+
 matplot(out[,-1], type = "l", xlab = "time", ylab = "population")
+
 legend("topright", c("Limncalanus/R Assignments", "D.mendotae/ Mattie's Stress"), lty = c(1,2), col = c(1,2), box.lwd = 0)
+
+
 
 # (2) - What do alpha, beta, gamma, and delta represent in this function? (4 pts)
   #alpha represents the rate of prey population growth
   #beta represents the rate of predation
-  #delta represents rate of prey consumption/ rate of prey die-off 
+  #gamma represents rate of prey consumption/ population stability
+  #delta represents rate of prey consumption/ predator die-off 
 
 # (3) - By only changing values for alpha, beta, gamma, and/or delta
 # change the default parameters of the L-V model to best approximate the relationship between Limncalanus and D.mendotae, assuming both plots are on the same time scale.
-    #default: Pars <- c(alpha = 2, beta = 0.5, gamma = .2, delta = .6)
+
     #changed: Pars <- c(alpha = 3, beta = 0.5, gamma = .2, delta = .6)
+
+    #change:
+
 # What are the changes you've made to alpha, beta, gamma, and delta from the default values; and what do they say in a relative sense about the plankton data? (4 pts)
     #The changes that I made was I increased alpha by 1 compares to the default calues.
     #This says that the Plankton data had a greater prey population growth rate than
