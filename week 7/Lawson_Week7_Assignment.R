@@ -31,6 +31,7 @@ ggplot(data)  +
 
 #Now copy/paste in the Lotka-Volterra function, plotting script, and load the "deSolve" package from the tutorial:
 library("deSolve")
+dev.off()
 LotVmod <- function (Time, State, Pars) {
   with(as.list(c(State, Pars)), {
     dx = x*(alpha - beta*y)
@@ -38,21 +39,36 @@ LotVmod <- function (Time, State, Pars) {
     return(list(c(dx, dy)))
   })
 }
-Pars <- c(alpha = 2, beta = 0.5, gamma = .2, delta = .6) 
+
+Pars <- c(alpha = 3, beta = 0.5, gamma = .2, delta = .6) 
 State <- c(x = 10, y = 10)
 Time <- seq(0, 100, by = 1)
-out <- as.data.frame(ode(func = LotVmod, y = State, parms = Pars, times = Time)) 
+out <- as.data.frame(ode(func = LotVmod, y = State, parms = Pars, times = Time))
+
 matplot(out[,-1], type = "l", xlab = "time", ylab = "population")
+
+legend("topright", c("Limncalanus/R Assignments", "D.mendotae/ Mattie's Stress"), lty = c(1,2), col = c(1,2), box.lwd = 0)
+
+
 
 # (2) - What do alpha, beta, gamma, and delta represent in this function? (4 pts)
   #alpha represents the rate of prey population growth
   #beta represents the rate of predation
-  #delta represents rate of prey consumption/ rate of prey die-off 
+  #gamma represents rate of prey consumption/ population stability
+  #delta represents rate of prey consumption/ predator die-off 
 
 # (3) - By only changing values for alpha, beta, gamma, and/or delta
 # change the default parameters of the L-V model to best approximate the relationship between Limncalanus and D.mendotae, assuming both plots are on the same time scale.
+    #default: Pars <- c(alpha = 2, beta = 0.5, gamma = .2, delta = .6)
+    #change: Pars <- c(alpha = 3, beta = 0.5, gamma = .2, delta = .6)
 # What are the changes you've made to alpha, beta, gamma, and delta from the default values; and what do they say in a relative sense about the plankton data? (4 pts)
+    #The changes that I made was I increased alpha by 1 compares to the default calues.
+    #This says that the Plankton data had a greater prey population growth rate than
+    #the default parameters did.
 # Are there other paramenter changes that could have created the same end result? (2 pts)
+    #Yes, there are other parameters that could have created this same result. I could also
+    #changed gamma (rate of prey consumption) to increase it and that would have had a similar
+    #effect as increasing alpha as they both cause the same effect 
 # Export your final L-V plot with a legend that includes the appropriate genus and/or species name as if the model results were the real plankton data, 
 # and upload with your script. (hint - remember which one is the predator and which is the prey)
 
