@@ -49,6 +49,7 @@ matplot(out[,-1], type = "l", xlab = "time", ylab = "population")
 
 legend("topright", c("Limncalanus/R Assignments", "D.mendotae/ Mattie's Stress"), lty = c(1,2), col = c(1,2), box.lwd = 0)
 
+#Nice legend. I'm sorry...
 
 
 # (2) - What do alpha, beta, gamma, and delta represent in this function? (4 pts)
