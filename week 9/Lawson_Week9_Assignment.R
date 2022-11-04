@@ -111,12 +111,16 @@ plot(invert.means2$Ixodida~abiotic.means2$Ca)
 plot(invert.means2$Ixodida~abiotic.means2$Al)
 plot(invert.means2$Ixodida~abiotic.means2$TotalP)
 plot(invert.means2$Ixodida~abiotic.means2$OlsenP)
-
+lm(invert.means2$Ixodida~abiotic.means2$OlsenP)
   #The ecological importance of the lack of significant predictors here is that maybe I just
   #need to look at a different species and one will have significance with an abiotic variable
   #but by looking at the abiotics individually and a single species it is easier to see
   #what is and is not having an effect rather than looking at tons of species at once.
 
+#Kudos for visualizing all of the comparisons! But where are the linear models to test the comparison?
+#For example:
+mod<- lm(invert.means2$Ixodida~abiotic.means2$OlsenP)
+anova(mod)
 # (Q3 - 6 pts) Provide a 3-4 sentence synthesis of how these results relate to one another and the value of considering both together for interpreting biotic-abiotic interactions.
   #These resulta relate to one another because they are both using data from the same data set so
   #we are looking at the same community of invertebrates and the same abiotic factors in the two
