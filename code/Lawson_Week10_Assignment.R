@@ -1,5 +1,10 @@
 # Load the packages from this week's tutorial.
 #In the tutorial we looked at the community as a whole and the swimmers which ultimately matched a prediction we had for their distribution.
+setwd("C:/GitHub/lawsonle/week 10")
+library(spdep)
+library(adespatial)
+library(vegan)
+
 
 #Part 1: Look at two other subsets of the community and determine the relative influence of space and habitat on each following the methods in the tutorial. (10 points)
 #The options include groupings by taxonomy, where Diptera (true flies) have the strongest flight ability, Trichoptera the 2nd strongest, 
@@ -7,6 +12,8 @@
 #Groupings by habits include the swimmers (off limits for the assignment) as most mobile, sprawlers as 2nd (they move in search of food, but not quickly),
     #and the clingers come in last (they might move up and down on individual rocks).
 
+#SPRAWLERS
+#CLINGERS
 
 
 #Part 2: What is your interpretation of the pattern for each group individually, and the two in comparison, based on their mobility? (5 points)
