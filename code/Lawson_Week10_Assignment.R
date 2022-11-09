@@ -120,12 +120,27 @@ RsquareAdj(ClingHabNoSpace.rda)
 
 
 #Part 2: What is your interpretation of the pattern for each group individually, and the two in comparison, based on their mobility? (5 points)
-#EphemeropteraSpaceNoHab - Pr(>F)=0.001, rsquared=0.1074084
-#EphemeropteraHabNoSpace - Pr(>f)=0.003, rsquared=0.0699888
+#EphemeropteraSpaceNoHab -  32% constrained & 28% conditional
+#EphemeropteraHabNoSpace - 10% constrained & 50% conditional
 
-#ClingSpaceNoHab - Pr(>F)=0.001, rsquared=0.4425484
-#ClingHabNoSpace - Pr(>F)=0.251, rsquared=0.01079957
+#ClingSpaceNoHab - 48% constrained & 25% conditional
+#ClingHabNoSpace - 43% constrained & 69% conditional
 
+#Individually: 
+#The Ephemeroptera had a higher percentage of conditional in habitat so because
+#Ephemeroptera are the species with the weakest flight ability (of those with wings) they would
+#have lower mobility and be more stuck with the habitat they are thrown into with less of 
+#a choice/chance to just move wherever they want.
+
+#The Clingers saw the same pattern as the Ephemeroptera as they too had a higher percentage
+#in the HabNoSpace. So they too have low mobility as they are more constrained by space. Because
+#they are the type in the grouping by habitat, they too are stuck where they are put with 
+#less opportunity to move where they want.
+
+#Two in Comparison
+#Because I did pick the two out of the two groupings with the least mobility it does make
+#sense that they would both have a higher conditional percentage in habitat as they have
+#less opportunity to move by themselves as they are not the most mobile.
 
 #Part 3: For each of your chosen groups of bugs, perform variable selection for the habitat data rather than the AEM data. Which habitat variables are significant for each? (10 points)
   # Definitions for the habitat column names:
@@ -137,16 +152,23 @@ RsquareAdj(ClingHabNoSpace.rda)
     #Flow	= water velocity where samples were collected
     #Fines = Percent of the substrate as "fines" i.e. small particles too small to measure
     #AveAr = The average size of rocks where each sample was collected
+EphemeropteraHabitat.rda <- rda(Ephemeroptera.mat, as.data.frame(HabitatbyPatch.mat))
+EphemeropteraHabitat.r2a <- RsquareAdj(EphemeropteraHabitat.rda)$adj.r.squared
+EphemeropteraHabitat.fwd <- forward.sel(Ephemeroptera.mat,as.data.frame(HabitatbyPatch.mat), adjR2thresh=Space.r2a)
+EphemeropteraHabitat.fwd
+#Significant = Depth, Flow, Inorg, BOM
 
-EphDF <- data.frame(Ephemeroptera.mat)
-HabDF <- data.frame(HabitatbyPatch.mat)
+ClingHabitat.rda <- rda(Clingers.mat, as.data.frame(HabitatbyPatch.mat))
+ClingHabitat.r2a <- RsquareAdj(ClingHabitat.rda)$adj.r.squared
+ClingHabitat.fwd <- forward.sel(Clingers.mat,as.data.frame(HabitatbyPatch.mat), adjR2thresh=Space.r2a)
+ClingHabitat.fwd
+#Significant = Depth
 
-model <- lm(EphDF~Inorg+Organ+Chla+BOM+Depth+Flow+Fines+AveAr, data=HabDF)
-anova(model)
-ols_step_all_possible(model)
-
-
-plot(HabitatbyPatch.mat$Inorg~Ephemeroptera.mat)
 
 #Part 4: How do you expect selecting both the spatial and the habitat variables would change the results of the RDAs from Part 1 above? (5 points)
   #(You do not need to redo the RDAs, unless you *want* to.)
+#I think that selecting both spatial and habitat would allow for us to see more general
+#information about the community as a whole because instead of just looking at hoe spatial 
+#variables effect the community, we would see how both spatial and habitat together effect 
+#the community. We could see more of the variable responses of the community because
+#more variables are being looked at.
