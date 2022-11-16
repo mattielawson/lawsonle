@@ -124,7 +124,7 @@ RsquareAdj(ClingHabNoSpace.rda)
 #EphemeropteraHabNoSpace - 10% constrained & 50% conditional
 
 #ClingSpaceNoHab - 48% constrained & 25% conditional
-#ClingHabNoSpace - 43% constrained & 69% conditional
+#ClingHabNoSpace - 43% constrained & 69% conditional ##4.3% constrained?
 
 #Individually: 
 #The Ephemeroptera had a higher percentage of conditional in habitat so because
@@ -141,6 +141,7 @@ RsquareAdj(ClingHabNoSpace.rda)
 #Because I did pick the two out of the two groupings with the least mobility it does make
 #sense that they would both have a higher conditional percentage in habitat as they have
 #less opportunity to move by themselves as they are not the most mobile.
+#Fair point. What about the relative dispersal of each?
 
 #Part 3: For each of your chosen groups of bugs, perform variable selection for the habitat data rather than the AEM data. Which habitat variables are significant for each? (10 points)
   # Definitions for the habitat column names:
@@ -172,3 +173,6 @@ ClingHabitat.fwd
 #variables effect the community, we would see how both spatial and habitat together effect 
 #the community. We could see more of the variable responses of the community because
 #more variables are being looked at.
+
+#This might be true, but it's tangential to the question. Without selecting variables for habitat, you are likely overfitting that part of the model.
+#So the "real" influence of space is likely much stronger than what you generated with the above models.
