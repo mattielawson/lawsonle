@@ -28,8 +28,8 @@ bear_ag2$Date <- format(as.Date(bear_ag2$Group.1,format='%d-%m-%Y'),format='%m/%
 as.Date(as.character(bear_ag2$Group.1),format='%d/%m/%Y')
 
 
-data.frame(do.call("rbind", strsplit(as.character(bear_ag2$Group.1), "-", fixed = TRUE)))
-
+df1<-data.frame(do.call("rbind", strsplit(as.character(bear_ag2$Group.1), "-", fixed = TRUE)))
+cbind(bear_ag2,df1)
 
 
 
