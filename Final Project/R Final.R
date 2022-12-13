@@ -1,4 +1,5 @@
-##DATA GROOMING
+###DATA GROOMING###
+
 #Set working directory
 setwd("C:/GitHub/lawsonle/Final Project")
 
@@ -35,26 +36,46 @@ df5 <- subset(df4, select=-c(Group.1,X1,X3))
 df6 <- subset(df3, select=-c(Group.1,X1,X3))
 
 #rbind both data sets together to put both sets of date and number of bears seen together in one place
+#This will be used to analyze total sightings per month
 final<-rbind(df5, df6)
 
 #change names in final data frame to what they represent (bears & month)
 colnames(final)[1]="bears"
 colnames(final)[2]="month"
 
-?aggregate
-final2 <- aggregate(x=final$bears, by = list(final$month), FUN = "mean")
+#aggregate the two columns so that each month only has one row of the mean number of bears seen in that month
+#This will be used to analyze mean sightings per month
+final2 <- aggregate(x=final$bears, by = list(final$month), FUN = "mean", na.rm=TRUE)
 
-#DATA ANALYSIS
+#Change columnnames to match what they represent
+colnames(final2)[1]="month"
+colnames(final2)[2]="bears"
+
+###DATA ANALYSIS###
 
 #boxplot
-boxplot(bears~month, data=final, main="Bears Seen in Each Month",ylim=c(0,100))
+#a boxplot will allow to see summary data with the minimum, first quartile, median, third quartile, and maximum
+#adjusting the ylim will allow to not view outliers and get a closer view
+
+boxplot(bears~month, data=final, main="Total Bears Sightings in Each Month",
+        xlab="Month", ylab="Total Number of Bears", ylim = c(0,45))
+
 
 #barplot
-library(ggplot2)
-ggplot(final, aes(x = month, y = bears)) + 
-         geom_bar(stat = "identity")
+#a barplot will allow us to see the mean number of bears per month compared to one another
 
-#histogram
-hist(final$bears~final$month)
+library(ggplot2)
+ggplot(final2, aes(x = month, y = bears)) + 
+         geom_bar(stat = "identity") +
+        labs(x="Month", y="Mean Number of Bears") +
+        labs(main="Mean Bear Sightings per Month") +
+        ggtitle ("Mean Bear Sightings per Month")
+
+
+#connected scatterplot
+#a connected scatterplot will allow to view the trend of increasing or decreasing sightings throughout the year
+
+plot(final2$month, final2$bears, type = "b",
+     xlab = "Month", ylab = "Mean Number of Bears", main = "Mean Bears Sightings per Month")
 
 
