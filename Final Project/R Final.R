@@ -41,6 +41,9 @@ final<-rbind(df5, df6)
 colnames(final)[1]="bears"
 colnames(final)[2]="month"
 
+?aggregate
+final2 <- aggregate(x=final$bears, by = list(final$month), FUN = "mean")
+
 #DATA ANALYSIS
 
 #boxplot
@@ -53,3 +56,5 @@ ggplot(final, aes(x = month, y = bears)) +
 
 #histogram
 hist(final$bears~final$month)
+
+
