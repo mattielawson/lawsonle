@@ -34,7 +34,7 @@ df4<- cbind(bear_ag1, df2)
 df5 <- subset(df4, select=-c(Group.1,X1,X3))
 df6 <- subset(df3, select=-c(Group.1,X1,X3))
 
-#rbind both data sets together to put all data in one place
+#rbind both data sets together to put both sets of date and number of bears seen together in one place
 final<-rbind(df5, df6)
 
 #change names in final data frame to what they represent (bears & month)
@@ -46,8 +46,10 @@ colnames(final)[2]="month"
 #boxplot
 boxplot(bears~month, data=final, main="Bears Seen in Each Month",ylim=c(0,100))
 
+#barplot
+library(ggplot2)
+ggplot(final, aes(x = month, y = bears)) + 
+         geom_bar(stat = "identity")
 
-
-
-
-
+#histogram
+hist(final$bears~final$month)
