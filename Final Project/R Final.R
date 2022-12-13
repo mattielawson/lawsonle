@@ -39,9 +39,19 @@ df6 <- subset(df3, select=-c(Group.1,X1,X3))
 #This will be used to analyze total sightings per month
 final<-rbind(df5, df6)
 
+#perform an Anova test to see if month has a statistocally significant effect on number of bear sightings
+test.mod <- lm(final$bears~final$month)
+anova(test.mod)
+
+#To calculate r-squared, need summary statistics
+sum <- lm(final$month~final$bears, data = final) 
+#Extracting R-squared parameter from summary 
+summary(sum)$r.squared
+
 #change names in final data frame to what they represent (bears & month)
 colnames(final)[1]="bears"
 colnames(final)[2]="month"
+
 
 #aggregate the two columns so that each month only has one row of the mean number of bears seen in that month
 #This will be used to analyze mean sightings per month
@@ -59,6 +69,9 @@ colnames(final2)[2]="bears"
 
 boxplot(bears~month, data=final, main="Total Bears Sightings in Each Month",
         xlab="Month", ylab="Total Number of Bears", ylim = c(0,45))
+#Anova test to see significance
+anova(lm(final$bears~final$month))
+
 
 
 #barplot
