@@ -42,13 +42,14 @@ final<-rbind(df5, df6)
 #perform an Anova test to see if month has a statistocally significant effect on number of bear sightings
 test.mod <- lm(final$bears~final$month)
 anova(test.mod)
+summary(test.mod)$r.squared#Need this up here instead of below
 
 #To calculate r-squared, need summary statistics
-sum <- lm(final$month~final$bears, data = final) 
+sum <- lm(final$month~final$bears, data = final) #This is backward
 #Extracting R-squared parameter from summary 
 summary(sum)$r.squared
 
-#change names in final data frame to what they represent (bears & month)
+#change names in final data frame to what they represent (bears & month) #Out of order with the lm above.
 colnames(final)[1]="bears"
 colnames(final)[2]="month"
 
@@ -70,7 +71,7 @@ colnames(final2)[2]="bears"
 boxplot(bears~month, data=final, main="Total Bears Sightings in Each Month",
         xlab="Month", ylab="Total Number of Bears", ylim = c(0,45))
 #Anova test to see significance
-anova(lm(final$bears~final$month))
+anova(lm(final$bears~final$month))#clever, I appreciate the function nesting.
 
 
 
@@ -91,4 +92,6 @@ ggplot(final2, aes(x = month, y = bears)) +
 plot(final2$month, final2$bears, type = "b",
      xlab = "Month", ylab = "Mean Number of Bears", main = "Mean Bears Sightings per Month")
 
-
+#Everything is commented well and easy to follow. Just had the naming out of order above and an y~x backward in the second lm.
+#Your figures are all really well done, but they show exactly the same info!
+#Only One statistic used though...
